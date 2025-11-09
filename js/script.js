@@ -10,8 +10,12 @@ const closeTab = () => {
 const openTab = () => {
   contents.forEach((elem) => {
     elem.querySelector(".program-line__title").addEventListener("click", () => {
+      const descr = elem.querySelector(".program-line__descr");
+      const isActive = descr.classList.contains("active");
       closeTab();
-      elem.querySelector(".program-line__descr").classList.add("active");
+      if (!isActive) {
+        descr.classList.add("active");
+      }
     });
   });
 };
